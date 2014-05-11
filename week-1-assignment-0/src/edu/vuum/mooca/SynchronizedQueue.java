@@ -41,7 +41,7 @@ public class SynchronizedQueue {
      * @brief Enumerated type for return values of testing logic, has
      *       String for easy output.
      */
-    public enum SynchronizedQueueResult {
+   public enum SynchronizedQueueResult {
         RAN_PROPERLY("Threads Ran Properly."), 
         JOIN_NEVER_CALLED("Join() never called."),
         THREADS_NEVER_RAN("Threads never ran."),
@@ -212,6 +212,8 @@ public class SynchronizedQueue {
      */
     public static SynchronizedQueueResult testQueue(QueueAdapter<Integer> queue) {
         try {
+            mQueue = queue;
+
             // DONE - you fill in here to replace the null
             // initialization below to create two Java Threads, one
             // that's passed the producerRunnable and the other that's
@@ -232,7 +234,7 @@ public class SynchronizedQueue {
             // DONE - you fill in here to interrupt the threads.
             consumer.interrupt();
             producer.interrupt();
-
+            
             // DONE - you fill in here to wait for the threads to
             // exit.
             consumer.join();
